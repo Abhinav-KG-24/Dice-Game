@@ -24,24 +24,38 @@ class _DicePageState extends State<DicePage> {
   @override
   Widget build(BuildContext context) {
     return Center(
-        child: Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        Container(
-          width: 150,
-          height: 150,
-          child: TextButton(
-            style: TextButton.styleFrom(foregroundColor: Colors.green[900]),
-            onPressed: () {
-              setState(() {
-                diceNumber = Random().nextInt(6) + 1;
-              });
-            },
-            child: Image.asset('Assets/images/Dice$diceNumber.jpg'),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Container(
+            width: 150,
+            height: 150,
+            child: TextButton(
+              style: TextButton.styleFrom(foregroundColor: Colors.green[900]),
+              onPressed: () {
+                setState(() {
+                  diceNumber = Random().nextInt(6) + 1;
+                });
+              },
+              child: Image.asset('Assets/images/Dice$diceNumber.jpg'),
+            ),
           ),
-        ),
-        Text('dice $diceNumber')
-      ],
-    ));
+          const SizedBox(
+            height: 100,
+          ),
+          Container(
+            height: 100,
+          ),
+          Text(
+            'Dice Number : $diceNumber',
+            style: const TextStyle(
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
+                color: Colors.white,
+                fontFamily: 'Agbalumo'),
+          ),
+        ],
+      ),
+    );
   }
 }
